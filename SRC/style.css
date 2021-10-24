@@ -17,14 +17,35 @@
     
 }
 
-#dateTime {
+.date-time {
 font-size: 20px;
+display: inline-block;
+}
+
+.date-time:first-letter {
+    text-transform: capitalize;
 }
 
 .img {
     position: relative;
     top: -20px;
     padding: 10px;
+}
+
+#search-button {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    background-color: rgba(150, 44, 134, 0.5);
+    border-style: none;
+    box-shadow: 5px 5px 20px 0.5px rgb(97, 93, 93, 0.2);
+}
+
+#search-button:hover {
+background-color: rgba(186, 229, 240, 0.3);
+border-color: rgba(186, 229, 240, 0.3);
+}
+
+.time-note {
+    font-size: 12px;
 }
 
 .wrapper-weather-main {
@@ -41,9 +62,7 @@ font-size: 20px;
     top: -30px;
 }
 
-.time-note {
-    font-size: 12px;
-}
+
 
 p {
     padding-left: 15px;

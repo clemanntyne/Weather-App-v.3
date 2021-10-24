@@ -21,6 +21,16 @@
 <body>
     <div class="container">
         <div class="wrapper-weather-main">
+            <form id="search-form" class="mb-3">
+                <div class="row">
+                <div class="col-6">
+                <input type="search" placeholder="City..." class="form-control" id="city-input" autocomplete="off" />
+            </div>
+            <div class="col-6">
+                <input type="submit" value="search" class="btn btn-info search" id="search-button"/>
+            </div>
+        </div>
+            </form>
         <h1 id="city">
             Santa Rosa
         </h1>
@@ -40,7 +50,7 @@
             </div>
         </div>
         <div>
-            <span class="condition" id="condition">Light rain</span> | <span id="dateTime">Saturday 23, 2:28 PM </span><span class="time-note"> Your Current Time</span>
+            <span class="condition" id="condition">Light rain</span> | <span class="date-time" id="date-time">Saturday 23, 2:28 PM </span><span class="time-note"> Last Updated</span>
         </div>
        
     </div>
