@@ -31,13 +31,16 @@ function displayTemperature(response) {
     humidityElement.innerHTML = Math.round(response.data.main.humidity);
     let dateElement = document.querySelector("#dateTime");
     dateElement.innerHTML = formatDate(response.data.dt * 1000);
+    let iconElement = document.querySelector("#icon");
+    iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+    iconElement.setAttribute("alt", response.data.weather[0].description);
     console.log(response.data);
     
 }
 
 
 let apiKey = "88724523008dc9e1be18f6eb6a959b67"
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=New York&appid=${apiKey}&units=imperial`;
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=sydney&appid=${apiKey}&units=imperial`;
 
 console.log(apiUrl);
 axios.get(apiUrl).then(displayTemperature);

@@ -1,5 +1,6 @@
 .condition {
     display: inline-block;
+    font-size: 20px;
 }
 
 .condition:first-letter {
@@ -14,6 +15,10 @@
 .current-temperature {
     font-size: 61px;
     
+}
+
+#dateTime {
+font-size: 20px;
 }
 
 .img {
@@ -34,6 +39,10 @@
 .units {
     position: relative;
     top: -30px;
+}
+
+.time-note {
+    font-size: 12px;
 }
 
 p {
