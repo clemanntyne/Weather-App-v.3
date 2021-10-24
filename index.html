@@ -16,30 +16,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="src/style.css" />
     <title>Weather Application</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <div class="container">
         <div class="wrapper-weather-main">
-        <h1>
+        <h1 id="city">
             Santa Rosa
         </h1>
         <div class="row">
             <div class="col-6">
                 <img src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png" alt="cloudy" class="img"/>
-                <span class="current-temperature">61</span>
-                <span class="units">°F | °C
+                <span class="current-temperature" id="temperature">61</span>
+                <span class="units">°F | <a href="#">°C</a>
                 </span>
             </div>
             <div class="col-6">
                 <ul>
-                    <li>Precipitation: 59%</li>
-                    <li>Wind: 4 MPH</li>
-                    <li>Humidity: 81%</li>
+                    <li>Clouds: <span id="clouds">59</span>%</li>
+                    <li>Wind: <span id="wind">4</span> MPH</li>
+                    <li>Humidity: <span id="humidity">81</span>%</li>
                 </ul>
             </div>
         </div>
         <div>
-            Light rain | Saturday 23, 2:28 PM
+            <span id="condition">Light rain</span> | <span id="dateTime">Saturday 23, 2:28 PM</span>
         </div>
        
     </div>
