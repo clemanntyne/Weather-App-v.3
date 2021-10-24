@@ -16,13 +16,13 @@
 .container {
     font-family: 'Kaisei HarunoUmi', serif;
     color:rgb(97, 93, 93);
+    max-width: 676px;
+    min-width: 676px;
 }
 
 .current-temperature {
     font-size: 61px;    
 }
-
-
 
 .date-time {
 font-size: 20px;

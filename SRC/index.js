@@ -1,3 +1,5 @@
+
+//Pulling time/date from weather API
 function formatDate(timestamp){
 let date = new Date(timestamp);
 let hours = date.getHours();
@@ -16,7 +18,7 @@ return `${day} ${hours}:${minutes} ${ampm}`;
 }
 
 
-
+//Pulling data from weather API and sticking response in HTML
 function displayTemperature(response) {
     let temperatureElement = document.querySelector("#temperature")
     temperatureElement.innerHTML = Math.round(response.data.main.temp);
@@ -39,18 +41,21 @@ function displayTemperature(response) {
     fahrenheitTemperature = response.data.main.temp;
 }
 
+//Taking the City we tell it and using it plug into about function
 function search (city) {
 let apiKey = "88724523008dc9e1be18f6eb6a959b67"
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 axios.get(apiUrl).then(displayTemperature);
 }
 
+//Getting the city from the form field
 function handleSubmit(event) {
 event.preventDefault();
 let cityInputElement = document.querySelector("#city-input");
 search(cityInputElement.value)
 }
 
+//taking imperial temp and converting to metric
 function convertToMetric (event) {
     event.preventDefault();
     let celsius = Math.round((fahrenheitTemperature - 32) * 5 / 9);;
@@ -61,10 +66,13 @@ function convertToMetric (event) {
 
 }
 
+//taking metric temp and converting to imperial
 function convertToImperial (event){
     event.preventDefault();
     let temperatureElement = document.querySelector("#temperature");
     temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+    fahrenheitLink.classList.add("active");
+    celsiusLink.classList.remove("active");
 }
 
 let fahrenheitTemperature = null;
@@ -80,3 +88,4 @@ celsiusLink.addEventListener("click", convertToMetric);
 let fahrenheitLink = document.querySelector ("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToImperial);
 
+search("New York");
