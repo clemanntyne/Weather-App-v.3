@@ -26,8 +26,11 @@
                 <div class="col-6">
                 <input type="search" placeholder="City..." class="form-control" id="city-input" autocomplete="off" />
             </div>
-            <div class="col-6">
+            <div class="col-3">
                 <input type="submit" value="search" class="btn btn-info search" id="search-button"/>
+            
+            
+                <!--<input type="submit" value="Current Location" class="btn btn-info search" id="current-location"/>-->
             </div>
         </div>
             </form>
@@ -38,7 +41,10 @@
             <div class="col-6">
                 <img src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png" alt="cloudy" class="img" id="icon"/>
                 <span class="current-temperature" id="temperature">61</span>
-                <span class="units">°F | <a href="#">°C</a>
+                <span class="units">
+                    <a href="#" id="fahrenheit-link" class="active">°F</a>
+                     | 
+                    <a href="#" id="celsius-link">°C</a>
                 </span>
             </div>
             <div class="col-6">
