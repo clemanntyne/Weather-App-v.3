@@ -1,4 +1,18 @@
+function formatDate(timestamp){
+let date = new Date(timestamp);
+let hours = date.getHours();
+if (hours > 12) {
+    hours = (`${hours}` - 12)
+}
+let minutes = ("0" + date.getMinutes()).slice(-2);
 
+let days = [
+    "sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",]; 
+let day = days[date.getDay()];
+let ampm = hours >= 12 ? `am` : `pm`;
+
+return `${day} ${hours}:${minutes} ${ampm}`;
+}
 
 
 
@@ -12,9 +26,11 @@ function displayTemperature(response) {
     let cloudElement = document.querySelector("#clouds");
     cloudElement.innerHTML = response.data.clouds.all;
     let windElement = document.querySelector("#wind");
-    windElement.innerHTML = response.data.wind.speed;
+    windElement.innerHTML = Math.round(response.data.wind.speed);
     let humidityElement = document.querySelector("#humidity");
-    humidityElement.innerHTML = response.data.main.humidity;
+    humidityElement.innerHTML = Math.round(response.data.main.humidity);
+    let dateElement = document.querySelector("#dateTime");
+    dateElement.innerHTML = formatDate(response.data.dt * 1000);
     console.log(response.data);
     
 }

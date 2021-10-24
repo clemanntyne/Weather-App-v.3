@@ -1,3 +1,11 @@
+.condition {
+    display: inline-block;
+}
+
+.condition:first-letter {
+    text-transform: capitalize;
+}
+
 .container {
     font-family: 'Kaisei HarunoUmi', serif;
     color:rgb(97, 93, 93);
