@@ -17,6 +17,36 @@ let day = days[date.getDay()];
 return `${day} ${hours}:${minutes} ${ampm}`;
 }
 
+function displayForecast() {
+let forecastElement = document.querySelector("#forecast");
+
+let forecastHTML = `<div class="row">`;
+let days = ["Thur", "Fri", "Sat", "Sun", "Mon", "Tues"];
+days.forEach(function(day) {
+    forecastHTML = forecastHTML + `
+    <div class="col-2">
+      <lu>
+          <li class="day">
+              ${day}
+          </li>
+          <li>
+              <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="" width="36"/>
+          </li>
+          <li class="high">
+              74°
+          </li>
+          <li class = "low">
+              42°
+          </li>                
+          
+      </lu>
+    </div>
+  `;
+})
+
+forecastHTML = forecastHTML + `</div>`;
+forecastElement.innerHTML = forecastHTML;
+}
 
 //Pulling data from weather API and sticking response in HTML
 function displayTemperature(response) {
@@ -89,3 +119,4 @@ let fahrenheitLink = document.querySelector ("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToImperial);
 
 search("new York");
+displayForecast();
