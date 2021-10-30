@@ -17,7 +17,8 @@ let day = days[date.getDay()];
 return `${day} ${hours}:${minutes} ${ampm}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+console.log(response.data.daily);
 let forecastElement = document.querySelector("#forecast");
 
 let forecastHTML = `<div class="row">`;
@@ -48,6 +49,13 @@ forecastHTML = forecastHTML + `</div>`;
 forecastElement.innerHTML = forecastHTML;
 }
 
+function getForecast(coordinates) {
+    console.log(coordinates);
+    let apiKey = "88724523008dc9e1be18f6eb6a959b67"
+    let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&unit=imperial`;
+    axios.get(apiURL).then(displayForecast);
+}
+
 //Pulling data from weather API and sticking response in HTML
 function displayTemperature(response) {
     let temperatureElement = document.querySelector("#temperature")
@@ -69,6 +77,9 @@ function displayTemperature(response) {
     iconElement.setAttribute("alt", response.data.weather[0].description); 
 
     fahrenheitTemperature = response.data.main.temp;
+
+    getForecast(response.data.coord);
+
 }
 
 //Taking the City we tell it and using it plug into about function
