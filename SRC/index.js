@@ -88,4 +88,4 @@ celsiusLink.addEventListener("click", convertToMetric);
 let fahrenheitLink = document.querySelector ("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToImperial);
 
-search("New York");
+search("new York");

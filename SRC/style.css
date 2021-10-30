@@ -16,13 +16,25 @@
 .container {
     font-family: 'Kaisei HarunoUmi', serif;
     color:rgb(97, 93, 93);
-    max-width: 676px;
-    min-width: 676px;
+    max-width: 780px;
+    min-width: 780px;
 }
 
 .current-temperature {
     font-size: 61px;    
 }
+
+#current-location {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    background-color: rgba(150, 44, 134, 0.5);
+    border-style: none;
+    box-shadow: 5px 5px 20px 0.5px rgb(97, 93, 93, 0.2);
+  }
+  
+  #current-location:hover {
+  background-color: rgba(186, 229, 240, 0.3);
+  border-color: rgba(186, 229, 240, 0.3);
+  }
 
 .date-time {
 font-size: 20px;
@@ -31,6 +43,10 @@ display: inline-block;
 
 .date-time:first-letter {
     text-transform: capitalize;
+}
+
+.high {
+    font-weight: bold;
 }
 
 .img {
@@ -44,7 +60,7 @@ display: inline-block;
     background-color: rgba(150, 44, 134, 0.5);
     border-style: none;
     box-shadow: 5px 5px 20px 0.5px rgb(97, 93, 93, 0.2);
-}
+  }
 
 #search-button:hover {
 background-color: rgba(186, 229, 240, 0.3);
@@ -64,6 +80,14 @@ border-color: rgba(186, 229, 240, 0.3);
     box-shadow: 5px 5px 20px 1px rgba(150, 44, 134, 0.16);
 }
 
+.week-forecast {
+    text-align: center;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: rgba(186, 229, 240, 0.3) solid;
+    
+}
+
 .units {
     position: relative;
     top: -30px;
@@ -81,6 +105,12 @@ p {
 }
 
 ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+li {
     list-style-type: none;
     margin: 0px;
     padding: 0px;
