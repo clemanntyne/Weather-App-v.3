@@ -29,6 +29,7 @@
     background-color: rgba(150, 44, 134, 0.5);
     border-style: none;
     box-shadow: 5px 5px 20px 0.5px rgb(97, 93, 93, 0.2);
+    margin-left: 10px;
   }
   
   #current-location:hover {
