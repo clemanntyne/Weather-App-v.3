@@ -17,6 +17,7 @@ let day = days[date.getDay()];
 return `${day} ${hours}:${minutes} ${ampm}`;
 }
 
+//Formatting API string to display day name
 function formatDay(timestamp) {
     let date = new Date(timestamp * 1000);
     let day = date.getDay();
@@ -27,6 +28,7 @@ function formatDay(timestamp) {
 
 }
 
+//Using searched city lon & lat to show week forecast
 function displayForecast(response) {
 let forecast = response.data.daily;
 
@@ -34,6 +36,7 @@ let forecastElement = document.querySelector("#forecast");
 
 let forecastHTML = `<div class="row">`;
 
+//creating html loop to display day string data
 forecast.forEach(function(forecastDay, index) {
   if (index < 6) {  
     forecastHTML = forecastHTML + `
@@ -62,8 +65,8 @@ forecastHTML = forecastHTML + `</div>`;
 forecastElement.innerHTML = forecastHTML;
 }
 
+//Getting API setup. Data injected here from Searching/input info
 function getForecast(coordinates) {
-    console.log(coordinates);
     let apiKey = "88724523008dc9e1be18f6eb6a959b67"
     let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
     axios.get(apiURL).then(displayForecast);
@@ -109,13 +112,37 @@ let cityInputElement = document.querySelector("#city-input");
 search(cityInputElement.value)
 }
 
+//taking imperial temp and converting to metric
+function convertToMetric (event) {
+    event.preventDefault();
+    let celsius = Math.round((fahrenheitTemperature - 32) * 5 / 9);;
+    let temperatureElement = document.querySelector("#temperature");
+    temperatureElement.innerHTML = celsius;
+    fahrenheitLink.classList.remove("active");
+    celsiusLink.classList.add("active");
+
+}
+
+//taking metric temp and converting to imperial
+function convertToImperial (event){
+    event.preventDefault();
+    let temperatureElement = document.querySelector("#temperature");
+    temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+    fahrenheitLink.classList.add("active");
+    celsiusLink.classList.remove("active");
+}
 
 let fahrenheitTemperature = null;
-
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
+let celsiusLink = document.querySelector ("#celsius-link");
+celsiusLink.addEventListener("click", convertToMetric);
 
-search("new York");
+let fahrenheitLink = document.querySelector ("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", convertToImperial);
+
+
+search("San Francisco");
 displayForecast();
