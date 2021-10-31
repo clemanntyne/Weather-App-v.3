@@ -109,25 +109,6 @@ let cityInputElement = document.querySelector("#city-input");
 search(cityInputElement.value)
 }
 
-//taking imperial temp and converting to metric
-function convertToMetric (event) {
-    event.preventDefault();
-    let celsius = Math.round((fahrenheitTemperature - 32) * 5 / 9);;
-    let temperatureElement = document.querySelector("#temperature");
-    temperatureElement.innerHTML = celsius;
-    fahrenheitLink.classList.remove("active");
-    celsiusLink.classList.add("active");
-
-}
-
-//taking metric temp and converting to imperial
-function convertToImperial (event){
-    event.preventDefault();
-    let temperatureElement = document.querySelector("#temperature");
-    temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-    fahrenheitLink.classList.add("active");
-    celsiusLink.classList.remove("active");
-}
 
 let fahrenheitTemperature = null;
 
@@ -135,12 +116,6 @@ let fahrenheitTemperature = null;
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-
-let celsiusLink = document.querySelector ("#celsius-link");
-celsiusLink.addEventListener("click", convertToMetric);
-
-let fahrenheitLink = document.querySelector ("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", convertToImperial);
 
 search("new York");
 displayForecast();
